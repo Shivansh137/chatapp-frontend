@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import {current_user} from './Home'
 import { useState } from 'react'
 import { useRef } from 'react'
-const ENDPOINT = 'http://localhost:8000'
+const ENDPOINT = 'https://chatappbyshivansh-backend.onrender.com'
 const socket = socketIO(ENDPOINT, { transports: ['websocket'] });
 let id = 1;
 
