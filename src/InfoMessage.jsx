@@ -4,7 +4,7 @@ import React from 'react'
 const InfoMessage = ({message}) => {
   return (
     <Center p={2}>
-      <Badge p={2} fontSize='10' bgColor={'GrayText'}>{message}</Badge>
+      <Badge p={2} fontSize='10' color={'white'} bgColor={'GrayText'}>{message}</Badge>
     </Center>
   )
 }

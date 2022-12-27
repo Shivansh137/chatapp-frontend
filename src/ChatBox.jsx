@@ -33,7 +33,7 @@ const ChatBox = () => {
 
 
  socket.on('newMessage', ({ user, message }) => {
-      setChats([...chats, { type: user === current_user ? 'outgoing' : 'incoming', user: user, message: message, time: new Date().toLocaleTimeString().slice(0,4) + new Date().toLocaleTimeString().slice(-3)  }]);
+      setChats([...chats, { type: user === current_user ? 'outgoing' : 'incoming', user: user, message: message, time: (new Date().toLocaleTimeString().slice(0,4) + new Date().toLocaleTimeString().slice(-3)) }]);
  })
 
   useEffect(() => {
@@ -63,7 +63,7 @@ const ChatBox = () => {
    <div ref={messageEnd}></div>
 </VStack>
       <HStack bgColor={'blackAlpha.500'} justifySelf={'flex-end'} w={'full'} h='10vh' p={3} justifyContent={'center'}>
-        <Input onChange={()=>{message = ref.current.value}} ref={ref} w={'90%'} h={'50'} colorScheme={'whatsapp'} placeholder='Message'/>
+        <Input onChange={()=>{message = ref.current.value}} ref={ref} w={'90%'} h={'50'} color='white' colorScheme={'whatsapp'} placeholder='Message'/>
         <IconButton onClick={send} w={50} borderRadius={'50%'} h={50} color='white' bgColor={'black'} icon={<MdSend/>} />
       </HStack>
      </>
