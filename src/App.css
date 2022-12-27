@@ -1,0 +1,18 @@
+@keyframes anim{
+  0%{
+    background-color: deeppink;
+  }
+  10%{
+    background-color: peachpuff;
+  }
+  60%{
+    background-color: palegreen;
+  }
+  90%{
+    background-color: deeppink;
+  }
+  100%{
+    background-color: deeppink;
+  }
+
+}

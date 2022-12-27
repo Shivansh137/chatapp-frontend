@@ -1,40 +1,33 @@
 import React from 'react';
 import {
   ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
   theme,
+  Heading,
+  HStack,
+  Input,
+  Container,
 } from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import Home from './Home';
+import ChatBox from './ChatBox';
+import './App.css'
+import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
+
 
 function App() {
+  const [bgColor, setBgColor] = useState('#ee00ff')
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
+    <Container display={'flex'} flexDirection={'column'} bgColor={bgColor} minH={'100vh'} p={0}>
+        <HStack h={'10vh'} w={'full'} justifyContent={'space-between'} p={4} bgColor="blackAlpha.900" color={'white'}>
+            <Heading>ChatApp</Heading>
+            <Input size={'sm'} bgColor={'white'} value={bgColor} onChange={(e)=>{setBgColor(e.target.value)}} w={'15%'} type='color' />
+          </HStack>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/chatroom' element={<ChatBox/>}/>
+          </Routes>
+        </Container>
     </ChakraProvider>
   );
 }
